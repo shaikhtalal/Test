@@ -87,7 +87,7 @@ func SendEmail(username string, email string, password string, content string) b
 	plainTextContent := "Login-Signup"
 	htmlContent := content //"Hello " + username + ", Your Password is:" + password
 	message := mail.NewSingleEmail(from, subject, to, plainTextContent, htmlContent)
-	client := sendgrid.NewSendClient("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")
+	client := sendgrid.NewSendClient("")
 	response, err := client.Send(message)
 
 	if err != nil {
@@ -144,7 +144,7 @@ func LogsInformation(req *http.Request) {
 		fmt.Println("External IP", ip.String()) // print IPv4/IPv6 in string format
 	}
 
-	ipurl := "http://api.ipstack.com/" + externalip + "?access_key=5dd814cb89a53b26899a5060c8de5d42"
+	ipurl := "http://api.ipstack.com/" + externalip + "?access_key="
 
 	response, err := http.Get(ipurl)
 
